@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import pandas as pd
 import csv
 import json
 
@@ -33,7 +34,8 @@ async def stockage():
         dict_writer.writerows(toCSV)
 
 
-@app.post("/item/")
+@app.get("/item/")
 async def create_item(item : Item):
-    return item
+    df = pd.json_normalize((item))
+    df.to_csv("capteurs.csv")
 
