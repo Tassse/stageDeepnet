@@ -39,6 +39,5 @@ itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373
 async def update_df(itemJson : str):
     item = json.loads(itemJson)
     df = pd.json_normalize((item))
-    df.to_csv("capteurs.csv")
-    print(df)
+    df.to_csv('capteurs.csv')
 
