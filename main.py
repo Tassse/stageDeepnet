@@ -28,7 +28,7 @@ async def stockage():
             line = json.loads(line)
             toCSV.append(line)
     keys = toCSV[0].keys()
-    with open('capteurs.csv', 'w', newline='') as output_file:
+    with open('capteurs.csv', 'a', newline='') as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(toCSV)
