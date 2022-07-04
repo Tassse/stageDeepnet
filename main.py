@@ -33,9 +33,11 @@ async def stockage():
         dict_writer.writeheader()
         dict_writer.writerows(toCSV)
 
+itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373, "battery": 63, "timestamp": "2022-06-30 08:34:59"}
 
-@app.get("/item/")
-async def create_item(item : Item):
+@app.get("/itemJson")
+async def create_item(itemJson : str):
+    item = json.loads(itemJson)
     df = pd.json_normalize((item))
     df.to_csv("capteurs.csv")
 
