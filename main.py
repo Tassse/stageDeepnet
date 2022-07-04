@@ -33,7 +33,7 @@ async def stockage():
         dict_writer.writeheader()
         dict_writer.writerows(toCSV)
 
-itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373, "battery": 63, "timestamp": "2022-06-30 08:34:59"}
+#itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373, "battery": 63, "timestamp": "2022-06-30 08:34:59"}
   
 @app.get("/items/{itemJson}")
 async def update_df(itemJson : str):
