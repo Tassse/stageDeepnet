@@ -2,7 +2,7 @@ import requests
 import sys
 import subprocess
 
-if len(sys.argv==1):
+if len(sys.argv)==1:
     dodo=120
 else:
     dodo=sys.argv[1]
