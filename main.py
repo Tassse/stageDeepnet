@@ -14,25 +14,6 @@ class Item(BaseModel):
     battery:int
     timestamp:str
 
-
-@app.get("/files/{file_path}")
-async def stockage():
-    file = open('file_path', "r")
-    lines = file.readlines()
-    file.close()
-
-    toCSV = []
-    for line in lines:
-        line = line.replace("\n", "")
-        if line != "":
-            line = json.loads(line)
-            toCSV.append(line)
-    keys = toCSV[0].keys()
-    with open('capteurs.csv', 'a', newline='') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(toCSV)
-
 #itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373, "battery": 63, "timestamp": "2022-06-30 08:34:59"}
   
 @app.get("/items/{itemJson}")
