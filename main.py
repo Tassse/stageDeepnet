@@ -22,7 +22,4 @@ async def update_df(itemJson : str):
     df = pd.json_normalize((item))
     fileName = r"./capteurs.csv"
     fileObj = Path(fileName)
-    if fileObj.is_file() :
-        df.to_csv('capteurs.csv',mode='a',header=False)
-    else :
-        df.to_csv('capteurs.csv',mode='a')
+    df.to_csv('capteurs.csv',mode='a',header=not(fileObj.is_file()))
