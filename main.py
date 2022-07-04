@@ -15,7 +15,7 @@ class Item(BaseModel):
     timestamp:str
 
 
-@app.get("files/{file_path}")
+@app.get("/files/{file_path}")
 async def stockage():
     file = open('file_path', "r")
     lines = file.readlines()
