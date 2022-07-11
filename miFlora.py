@@ -21,6 +21,8 @@ import paho.mqtt.client as mqtt
 import sdnotify
 signal(SIGPIPE,SIG_DFL)
 
+import requests
+
 project_name = 'Xiaomi Mi Flora Plant Sensor MQTT Client/Daemon'
 project_url = 'https://github.com/ThomDietrich/miflora-mqtt-daemon'
 
@@ -156,7 +158,8 @@ for [name, mac] in config['Sensors'].items():
     flores[name_clean] = flora
 
 # Sensor data retrieval and publication
-for [flora_name, flora] in flores.items():
+while True :    
+    for [flora_name, flora] in flores.items():
         data = OrderedDict()
         attempts = 2
         flora['poller']._cache = None
@@ -187,7 +190,10 @@ for [flora_name, flora] in flores.items():
             data[param] = flora['poller'].parameter_value(param)
         if reporting_mode == 'json':
             data['timestamp'] = strftime('%Y-%m-%d %H:%M:%S', localtime())
-            print(json.dumps(data))
+            donnee = json.dumps(data)
+            requete = 'http://127.0.0.1:8000/items/' + donnee
+            r=requests.get(requete)
             #print(data)
         else:
             raise NameError('Unexpected reporting_mode.')
+    sleep(120)
