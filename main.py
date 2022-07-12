@@ -25,8 +25,8 @@ async def update_df(itemJson : str):
     df = pd.json_normalize((item))
     fileName = "capteurs.csv"
     fileObj = Path(fileName)
-    return str(fileObj.absolute())
-    #df.to_csv('capteurs.csv',mode='a',header=not(fileObj.is_file()))
+    #return str(fileObj.absolute())
+    df.to_csv('capteurs.csv',mode='a',header=not(fileObj.is_file()))
 
 @app.get("/fichier")
 async def fichier():
