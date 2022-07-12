@@ -4,7 +4,9 @@ import pandas as pd
 import csv
 import json
 from pathlib import Path
+from fastapi.responses import FileResponse
 
+path="capteurs.csv"
 app = FastAPI()
 
 class Item(BaseModel):
@@ -24,3 +26,7 @@ async def update_df(itemJson : str):
     fileName = r"./capteurs.csv"
     fileObj = Path(fileName)
     df.to_csv('capteurs.csv',mode='a',header=not(fileObj.is_file()))
+
+@app.get("/fichier")
+async def fichier():
+    return FileResponse(path)
