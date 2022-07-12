@@ -24,10 +24,10 @@ class Item(BaseModel):
 async def update_df(itemJson : str):
     item = json.loads(itemJson)
     df = pd.json_normalize((item))
-    #df.to_csv(path_capteur_db,mode='a',header=not(path_capteur_db.is_file()))
-    return str(path_capteur_db.absolute())
+    df.to_csv(path_capteur_db,mode='a',header=not(path_capteur_db.is_file()))
+    #return str(path_capteur_db.absolute())
 
 @app.get("/fichier")
 async def fichier():
-    #return FileResponse(path_capteur_db)
-    return str(path_capteur_db)
+    return FileResponse(path_capteur_db)
+    #return str(path_capteur_db)
