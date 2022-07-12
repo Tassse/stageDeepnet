@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from fastapi.responses import FileResponse
 
-path="capteurs.csv"
+path="/app/capteurs.csv"
 app = FastAPI()
 
 class Item(BaseModel):
