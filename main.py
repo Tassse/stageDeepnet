@@ -25,7 +25,7 @@ class Item(BaseModel):
 
 #Version Flask
 
-@app.route("/items/<str:itemJson>")
+@app.route("/items/<string:itemJson>")
 def update_df(itemJson):
     item = json.loads(itemJson)
     df = pd.json_normalize((item))
