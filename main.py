@@ -1,5 +1,5 @@
 #from fastapi import FastAPI
-from pydantic import BaseModel
+#from pydantic import BaseModel
 import pandas as pd
 import csv
 import json
@@ -13,13 +13,13 @@ path_capteur_db = Path("/Users/thais/PycharmProjects/pythonDeepnetAPI/stageDeepn
 
 app = Flask(__name__)
 
-class Item(BaseModel):
+"""class Item(BaseModel):
     light:int
     temperature:float
     moisture:int
     conductivity:int
     battery:int
-    timestamp:str
+    timestamp:str"""
 
 #itemJson = {"light": 0, "temperature": 21.4, "moisture": 18, "conductivity": 373, "battery": 63, "timestamp": "2022-06-30 08:34:59"}
 
