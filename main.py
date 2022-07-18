@@ -4,7 +4,7 @@ import pandas as pd
 import csv
 import json
 from pathlib import Path
-from fastapi.responses import FileResponse
+#from fastapi.responses import FileResponse
 from flask import Flask
 
 path_capteur_db = Path("/Users/thais/PycharmProjects/pythonDeepnetAPI/stageDeepnet/capteurs-testthais.csv")
