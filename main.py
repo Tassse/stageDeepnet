@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 #Version Flask
 
-@app.route("/items/<string:itemJson>")
+""""@app.route("/items/<string:itemJson>")
 def update_df(itemJson):
     item = json.loads(itemJson)
     df = pd.json_normalize((item))
@@ -35,7 +35,12 @@ def update_df(itemJson):
 
 @app.route("/fichier")
 def fichier():
-    return FileResponse(path_capteur_db)
+    return FileResponse(path_capteur_db)"""
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
 
 
 #Version FastAPI
