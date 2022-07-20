@@ -191,7 +191,7 @@ while True :
         if reporting_mode == 'json':
             data['timestamp'] = strftime('%Y-%m-%d %H:%M:%S', localtime())
             donnee = json.dumps(data)
-            requete = 'http://127.0.0.1:8000/items/' + donnee
+            requete = 'http://twuillemin.pythonanywhere.com/items/' + donnee
             r=requests.get(requete)
             #print(data)
         else:
