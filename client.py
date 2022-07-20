@@ -1,4 +1,3 @@
 import requests
 
-requete = 'http://twuillemin.pythonanywhere.com/fichier'
-r=requests.get(requete)
+r=requests.get('http://twuillemin.pythonanywhere.com/fichier')
