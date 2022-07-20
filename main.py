@@ -5,9 +5,10 @@ import csv
 import json
 from pathlib import Path
 #from fastapi.responses import FileResponse
+from flask import Flask
 import flask
 
-path_capteur_db = Path("/Users/thais/PycharmProjects/pythonDeepnetAPI/stageDeepnet/capteurs-testthais.csv")
+path_capteur_db = Path("database.csv")
 
 #app = FastAPI()
 
