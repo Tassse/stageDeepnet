@@ -5,7 +5,7 @@ import csv
 import json
 from pathlib import Path
 #from fastapi.responses import FileResponse
-from flask import Flask
+import flask
 
 path_capteur_db = Path("/Users/thais/PycharmProjects/pythonDeepnetAPI/stageDeepnet/capteurs-testthais.csv")
 
@@ -35,7 +35,7 @@ def update_df(itemJson):
 
 @app.route("/fichier")
 def fichier():
-    return FileResponse(path_capteur_db)
+    return flask.send_file(path_capteur_db)
 
 
 
